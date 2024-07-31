@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{%block title %}
+Passenger Details
+{% endblock title %}
+
+{% block body%}
+Passenger Details
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">P_ID</th>
+        <th scope="col">USERNAME</th>
+        <th scope="col">NAME</th>
+        <th scope="col">TICKET ID</th>
+        <th scope="col">ACTION</th>
+        <th scope="col">TIMESTAMP</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post in posts %}
+      <tr>
+        
+        <th scope="row">{{post.t_id}}</th>
+        <td>{{post.username}}</td>
+        <td>{{post.Name}}</td>
+        <td>{{post.ticket_id}}</td>
+        <td>{{post.action}}</td>
+        <td>{{post.timestamp}}</td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+      {% endblock body %}

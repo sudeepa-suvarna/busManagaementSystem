@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{%block title %}
+BOOKING
+{% endblock title %}
+
+{% block body%}
+<form action="/ticket" method="post">
+  <div class="mb-4">
+    <br>
+{% with messages=get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+    <input type="text" class="form-control" id="name" name="username" value="{{current_user.username}}" required>
+</div>
+    <div class="mb-4">
+
+        <input type="text" class="form-control" id="name" name="name" placeholder="Full name" required>
+    </div>
+    <div class="mb-4">
+      <input type="number" class="form-control" id="bus_no" name="bus_no" placeholder="bus_no" required>
+    </div>
+    <div class="mb-4">
+        <input type="number" class="form-control" id="seat_no" name="seat_no" placeholder="seat_no" required>
+      </div>
+      <div class="mb-4">
+        <input type="time" class="form-control" id="time" name="time" placeholder="time" required>
+      </div>
+      <div class="mb-4">
+        <input type="date" class="form-control" id="date" name="date" placeholder="date" required>
+      </div>
+      <div class="mb-4">
+
+        <input type="text" class="form-control" id="from" name="from" placeholder="from" required>
+      </div>
+      <div class="mb-4">
+       <input type="text" class="form-control" id="to" name="to" placeholder="to" required>
+      </div>
+    <div class="mb-4">
+      
+    <button type="book" class="btn btn-primary">Book</button>
+</form>
+      {% endblock body %}
